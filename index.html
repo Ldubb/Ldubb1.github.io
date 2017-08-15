@@ -1,0 +1,459 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+   <!-- Bootstrap and Font Awesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>were</title>
+
+<style>
+@font-face {
+    font-family: "logieFont";
+    src: url(Gilroy-ExtraBold.otf);
+}
+
+body {
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'logieFont';
+ 
+}
+#bgimg1 {  background: url(https://s3.amazonaws.com/uploads.hipchat.com/697967/4899719/m3GK1As1A2NeUDD/sitebg.jpg);
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  }
+
+p {
+  line-height: 1.5;
+}
+
+.nav-trigger {
+  position: fixed;
+  width: 110px;
+  height: 98px;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  z-index: 200;
+  -webkit-transform-origin: 110px 0px;
+  -moz-transform-origin: 110px 0px;
+  -ms-transform-origin: 110px 0px;
+  -o-transform-origin: 110px 0px;
+  transform-origin: 110px 0px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  -o-transform: scale(0.6);
+  transform: scale(0.6);
+  -webkit-transition: background 0.3s linear;
+  -moz-transition: background 0.3s linear;
+  transition: background 0.3s linear;
+}
+
+.nav-trigger.open {
+  background: #222;
+}
+
+.nav-trigger.close {
+  background: transparent;
+}
+
+.line {
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 8px;
+  background: #fff;
+  left: 15px;
+  -webkit-transform-origin: 0px 4px;
+  -moz-transform-origin: 0px 4px;
+  -ms-transform-origin: 0px 4px;
+  -o-transform-origin: 0px 4px;
+  transform-origin: 0px 4px;
+  -webkit-transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s, -webkit-transform 0.24s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  -moz-transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s, -moz-transform 0.24s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s, transform 0.24s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.line:nth-child(1) {
+  top: 16px;
+}
+
+.line:nth-child(2) {
+  top: 44px;
+}
+
+.line:nth-child(3) {
+  top: 72px;
+}
+
+.close .line:nth-child(1) {
+  -webkit-transform: translateX(11px) rotate(45deg);
+  -moz-transform: translateX(11px) rotate(45deg);
+  -ms-transform: translateX(11px) rotate(45deg);
+  -o-transform: translateX(11px) rotate(45deg);
+  transform: translateX(11px) rotate(45deg);
+}
+
+.close .line:nth-child(2) {
+  opacity: 0;
+}
+
+.close .line:nth-child(3) {
+  -webkit-transform: translateX(11px) rotate(-45deg);
+  -moz-transform: translateX(11px) rotate(-45deg);
+  -ms-transform: translateX(11px) rotate(-45deg);
+  -o-transform: translateX(11px) rotate(-45deg);
+  transform: translateX(11px) rotate(-45deg);
+}
+
+nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+nav.out {
+  pointer-events: none;
+}
+
+nav.in {
+  pointer-events: auto;
+}
+
+nav ul, li {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+nav ul {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+nav li {
+  height: 20%;
+  position: relative;
+  background: #222;
+  color: #fff;
+  font-family: "logieFont";
+  opacity: 1;
+}
+
+nav li:hover {
+  background: url(https://image.freepik.com/free-vector/pattern-of-ornamental-watercolor-shapes_23-2147665475.jpg);
+
+
+}
+
+nav.in li:nth-child(1) {
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s, opacity 0.5s linear 0.1s;
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s, opacity 0.5s linear 0.1s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s, opacity 0.5s linear 0.1s;
+}
+
+nav.in li:nth-child(2) {
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s, opacity 0.5s linear 0.2s;
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s, opacity 0.5s linear 0.2s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s, opacity 0.5s linear 0.2s;
+}
+
+nav.in li:nth-child(3) {
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s, opacity 0.5s linear 0.3s;
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s, opacity 0.5s linear 0.3s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s, opacity 0.5s linear 0.3s;
+}
+
+nav.in li:nth-child(4) {
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.5s linear 0.4s;
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.5s linear 0.4s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.5s linear 0.4s;
+}
+
+nav.in li:nth-child(5) {
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s, opacity 0.5s linear 0.5s;
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s, opacity 0.5s linear 0.5s;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s, opacity 0.5s linear 0.5s;
+}
+
+nav.out li:nth-child(5) {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s, opacity 0.3s linear 0s;
+  -moz-transition: -moz-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s, opacity 0.3s linear 0s;
+  transition: transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s, opacity 0.3s linear 0s;
+}
+
+nav.out li:nth-child(4) {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.05s, opacity 0.3s linear 0.05s;
+  -moz-transition: -moz-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.05s, opacity 0.3s linear 0.05s;
+  transition: transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.05s, opacity 0.3s linear 0.05s;
+}
+
+nav.out li:nth-child(3) {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.1s, opacity 0.3s linear 0.1s;
+  -moz-transition: -moz-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.1s, opacity 0.3s linear 0.1s;
+  transition: transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.1s, opacity 0.3s linear 0.1s;
+}
+
+nav.out li:nth-child(2) {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.15s, opacity 0.3s linear 0.15s;
+  -moz-transition: -moz-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.15s, opacity 0.3s linear 0.15s;
+  transition: transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.15s, opacity 0.3s linear 0.15s;
+}
+
+nav.out li:nth-child(1) {
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.2s, opacity 0.3s linear 0.2s;
+  -moz-transition: -moz-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.2s, opacity 0.3s linear 0.2s;
+  transition: transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.2s, opacity 0.3s linear 0.2s;
+}
+
+nav.out li {
+  -webkit-transform: translateY(300%);
+  -moz-transform: translateY(300%);
+  -ms-transform: translateY(300%);
+  -o-transform: translateY(300%);
+  transform: translateY(300%);
+  opacity: 0;
+}
+
+nav.in li {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.nav-label {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  height: 16px;
+  top: 50%;
+  margin-top: -8px;
+  text-transform: uppercase;
+}
+
+.header {
+  /*background: url(https://s3.amazonaws.com/uploads.hipchat.com/697967/4899719/m3GK1As1A2NeUDD/sitebg.jpg);
+  background-size: cover;
+  position: relative;*/
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+}
+
+.header h1 {
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  margin: 0;
+  font-family: "logieFont";
+  text-align: center;
+  display: block;
+  top: 50%;
+}
+
+.content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+/*start social tabs */
+         ul.social-network {
+                        list-style: none;
+                        display: inline;
+                        margin-top:2px;
+                        margin-left:0; !important;
+                        padding: 0;
+                        size:auto;
+                        
+                    }
+                    ul.social-network li {
+                        display: inline;
+                        margin: 0 5px;
+                    }
+                    /* footer social icons */
+                    .social-network a.icoRss:hover {
+                        background-color: #F56505;
+                    }
+                    .social-network a.icoFacebook:hover {
+                        background-color:#3B5998;
+                    }
+                    .social-network a.icoTwitter:hover {
+                        background-color:#33ccff;
+                    }
+                    .social-network a.icoGoogle:hover {
+                        background-color:#BD3518;
+                    }
+                    .social-network a.icoVimeo:hover {
+                        background-color:#0590B8;
+                    }
+                    .social-network a.icoLinkedin:hover {
+                        background-color:#007bb7;
+                    }
+                    .social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+                    .social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+                        color:#fff;
+                    }
+                    a.socialIcon:hover, .socialHoverClass {
+                        color:#44BCDD;
+                    }
+                    .social-circle li a {
+                        display:inline-block;
+                        position:relative;
+                        margin:0 auto 0 auto;
+                        -moz-border-radius:50%;
+                        -webkit-border-radius:50%;
+                        border-radius:50%;
+                        text-align:center;
+                        width: 50px;
+                        height: 50px;
+                        font-size:20px;
+                    }
+                    .social-circle li i {
+                        margin:0;
+                        line-height:50px;
+                        text-align: center;
+                    }
+                    .social-circle li a:hover {
+                        -moz-transform: rotate(360deg);
+                        -webkit-transform: rotate(360deg);
+                        -ms--transform: rotate(360deg);
+                        transform: rotate(360deg);
+                        -webkit-transition: all 0.2s;
+                        -moz-transition: all 0.2s;
+                        -o-transition: all 0.2s;
+                        -ms-transition: all 0.2s;
+                        transition: all 0.2s;
+                    }
+                    .social-circle i {
+                        color: #fff;
+                        -webkit-transition: all 0.8s;
+                        -moz-transition: all 0.8s;
+                        -o-transition: all 0.8s;
+                        -ms-transition: all 0.8s;
+                        transition: all 0.8s;
+                    }
+                    a {
+                     background:transparent;;   
+                    }
+
+
+</style>
+</head>
+<body>
+<div id="bgimg1"></div>
+	<div id="nav-trigger" class="nav-trigger open">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+<nav id="nav" class="out">
+  <ul>
+   
+    <li><span class="nav-label" style ="font-size: 12px;"><a href='http://www.facebook.com' style ='text-decoration: none;color: #2777;'>Films</a></span></li>
+    <li><span class="nav-label" style ="font-size: 12px;"><a href='http://www.facebook.com' style ='text-decoration: none;color: #2777;'>Packages</a></span></li>
+    <li><span class="nav-label" style ="font-size: 12px;"><a href='http://www.facebook.com' style ='text-decoration: none;color: #2777;'>VFX</a></span></li>
+    <li><span class="nav-label" style ="font-size: 12px;"><a href='http://www.facebook.com' style ='text-decoration: none;color: #2777;'>Photography</a></span></li>
+    <li><span class="nav-label" style ="font-size: 12px;"><a href='http://www.facebook.com' style ='text-decoration: none;color: #2777;'>Contact</a></span></span></li>
+
+  </ul>
+</nav>
+<section id="header" class="header">
+  <h1 style="text-align: center;" id="heading"><img id="AVGlogo" src="https://s3.amazonaws.com/uploads.hipchat.com/697967/4899719/gw5SXTaxFJf90bL/avgnewlogofinal2.png" alt="logow" class="img-responsive" style="margin: auto;background-color: #fff;opacity: 0.9;border: 41px solid #fff;padding: 0 50px 17px 50px;"></h1>
+  <div id="holdersoc">
+  	<div id="holdersmall" style="margin: auto;text-align: center;">
+  		<ul class="social-network social-circle" style="display:inline-block;margin-top: 68.5vh;">
+                       <!-- <li><a href="tel:(630)402-5598" class="icoRss" title="Phone"><i class="fa fa-phone"></i></a></li>-->
+                        
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-vimeo-square"></i></a></li>
+  
+                        <li><a href="https://www.instagram.com/" class="icoLinkedin" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+
+                        <li><a href="https://www.facebook.com/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+
+        </ul>
+  	</div>
+  </div>
+</section>
+<section class="content">
+
+ 
+</section>
+
+<script>
+	// selected elements
+var navTrigger = document.getElementById('nav-trigger');
+var nav = document.getElementById('nav');
+var header = document.getElementById('header');
+var heading = document.getElementById('heading');
+var labels = document.getElementsByClassName('nav-label');
+
+// sizing
+var windowHeight = window.innerHeight;
+var windowWidth = window.innerWidth;
+var fontSize = windowHeight*0.01;
+var headingSize = windowWidth*0.1;
+
+// Event Listening
+navTrigger.addEventListener('click', navToggle);
+window.addEventListener('resize', resize);
+
+function resize() {
+  windowHeight = window.innerHeight;
+  windowWidth = window.innerWidth;
+  fontSize = windowHeight*0.1;
+  headingSize = windowWidth*0.1;
+  if(headingSize > windowHeight*0.3) headingSize = windowHeight*0.3; 
+  
+  for(var i = 0; i < labels.length; i++) {
+    labels[i].style.fontSize = fontSize*0.5+'px';
+    labels[i].style.height = fontSize+'px';
+    labels[i].style.marginTop = '-'+fontSize*0.38+'px';
+  }
+
+  header.style.height = windowHeight+'px';
+  heading.style.fontSize = headingSize+'px';
+  heading.style.height = headingSize+'px';
+  heading.style.marginTop = '-'+headingSize*0.6+'px';
+  
+}
+
+function navToggle(e) {
+  var closed = (navTrigger.className.indexOf('close') > 0); 
+  if(closed) {
+    navTrigger.className = 'nav-trigger open';
+    nav.className = 'out';
+  } else {
+    navTrigger.className = 'nav-trigger close';
+    nav.className = 'in';
+  }
+}
+
+window.onload = resize;
+</script>
+
+</body>
+</html>
